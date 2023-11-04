@@ -18,7 +18,26 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="lines">
-          <div className="line-1"></div>
+          <div className="line-1">
+            {myArray.map((shape, index) => (
+              <div key={index} className={shape}></div>
+            ))}
+          </div>
+          <div className="line-2">
+            {myArray.map((shape, index) => (
+              <div key={index} className={shape}></div>
+            ))}
+          </div>
+          <div className="line-3">
+            {myArray.map((shape, index) => (
+              <div key={index} className={shape}></div>
+            ))}
+          </div>
+          <div className="line-4">
+            {myArray.map((shape, index) => (
+              <div key={index} className={shape}></div>
+            ))}
+          </div>
         </div>
         {children}
       </body>
