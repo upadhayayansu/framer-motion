@@ -1,8 +1,49 @@
 "use client";
 import React from "react";
+import Styled from "styled-components";
 
-function Button() {
-  return <div>Button</div>;
+interface ButtonProps {
+  name: string;
+  icon?: React.ReactNode;
+  background?: string;
+  color?: string;
+  border?: string;
 }
+
+function Button({
+  name,
+  icon,
+  background = "var(--color-bg)",
+  color,
+  border,
+}: Readonly<ButtonProps>) {
+  return (
+    <ButtonStyled
+      style={{
+        background: background,
+        color: color,
+        border: border,
+      }}
+    >
+      {icon && icon}
+      {name}
+    </ButtonStyled>
+  );
+}
+
+const ButtonStyled = Styled.button`
+    padding: 0.8rem;
+    border-radius: 30px;
+    border: 2px solid var(--color-border);
+    cursor:pointer;
+    transition: all 0.2s ease-in-out:
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    &:hover{
+        background-color:var(--var-border);
+        color:white;
+    }
+`;
 
 export default Button;
