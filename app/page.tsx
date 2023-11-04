@@ -9,7 +9,6 @@ export default function Home() {
       <MainStyled>
         <sectionLayout></sectionLayout>
       </MainStyled>
-      <main></main>
     </>
   );
 }
