@@ -7,13 +7,14 @@ export default function hover3d(ref, { x = 0, y = 0, z = 0 }) {
 
   const handleMouseMove = (e) => {
     const { offsetWidth: width, offsetHeight: height } = ref.current;
-    const { clintx, clienty } = e;
+    const { clientX, clientY } = e;
 
-    const x = (clientx - width / 2) / width;
-    consty = (clienty - height / 2) / height;
+    const x = (clientX - width / 2) / width;
+    const y = (clientY - height / 2) / height;
 
     setCoords({ x, y });
   };
+
   const handleMouseEnter = () => {
     setIsHovering(true);
   };
@@ -21,28 +22,29 @@ export default function hover3d(ref, { x = 0, y = 0, z = 0 }) {
   const handleMouseLeave = () => {
     setIsHovering(false);
   };
+
   React.useEffect(() => {
     const { current } = ref;
 
-    current.addEventListener("mouseMove", handleMouseMove);
+    current.addEventListener("mousemove", handleMouseMove);
     current.addEventListener("mouseenter", handleMouseEnter);
     current.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      current.addEventListener("mouseMove", handleMouseMove);
-      current.addEventListener("mouseenter", handleMouseEnter);
-      current.addEventListener("mouseleave", handleMouseLeave);
+      current.removeEventListener("mousemove", handleMouseMove);
+      current.removeEventListener("mouseenter", handleMouseEnter);
+      current.removeEventListener("mouseleave", handleMouseLeave);
     };
-
-    const { x: xCoords, y: yCoords } = coords;
-
-    const xTransform = isHovering ? xCoords * x : 0;
-    const yTransform = isHovering ? yCoords * y : 0;
-    const zTransform = isHovering ? z : 0;
-
-    const transform = `perspective(1000px)rotateX(${xTransform}deg)rotateY(${yTransform}deg)translateZ(${zTransform}px)`;
-    const transition = isHovering ? "all 0.3s ease-in out" : "";
-
-    return { transform, transition };
   }, [ref]);
+
+  const { x: xCoord, y: yCoord } = coords;
+
+  const xTransform = isHovering ? xCoord * x : 0;
+  const yTransform = isHovering ? yCoord * y : 0;
+  const zTransform = isHovering ? z : 0;
+
+  const transform = `perspective(1000px) rotateX(${yTransform}deg) rotateY(${-xTransform}deg) translateZ(${zTransform}px)`;
+  const transition = isHovering ? "none" : "all 0.5s ease";
+
+  return { transform, transition };
 }

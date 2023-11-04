@@ -7,6 +7,7 @@ import Styled from "styled-components";
 import { FaRocket, FaWallet } from "react-icons/fa";
 import { Abril_Fatface } from "next/font/google";
 import Image from "next/image";
+import Hover3d from "../../utils/Hover";
 
 const abril = Abril_Fatface({
   weight: ["400"],
@@ -15,13 +16,13 @@ const abril = Abril_Fatface({
 
 function Header() {
   const hero = useRef<HTMLDivElement>(null);
-  const hoverHero = hover3d(hero, {
+  const hoverHero = Hover3d(hero, {
     x: 30,
     y: -40,
     z: 30,
   });
 
-  const imageHOver = hover3d(hero, {
+  const imageHOver = Hover3d(hero, {
     x: 20,
     y: -5,
     z: 11,
@@ -80,7 +81,7 @@ function Header() {
           <div
             className="image"
             style={{
-              transform: hoverHero.transform,
+              transform: hoverHero?.transform,
             }}
           >
             <Image
@@ -89,7 +90,7 @@ function Header() {
               width={600}
               height={600}
               style={{
-                transform: imageHOver.transform,
+                transform: imageHOver?.transform,
               }}
             />
           </div>
@@ -181,6 +182,4 @@ export default Header;
 function hover3d(
   hero: React.RefObject<HTMLDivElement>,
   arg1: { x: number; y: number; z: number }
-) {
-  throw new Error("Function not implemented.");
-}
+) {}
