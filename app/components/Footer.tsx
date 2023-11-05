@@ -3,7 +3,7 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "/public/logo.png";
-
+import footer from "../utils/footer";
 import Image from "next/image";
 
 import {
@@ -40,7 +40,7 @@ function Footer() {
           </div>
         </div>
         <div className="links">
-          {Footer.map((item: any, index: number) => {
+          {footer.map((item: any, index: number) => {
             return (
               <div key={index}>
                 <h4>{item.title}</h4>
