@@ -1,19 +1,20 @@
-import React, { Children } from "react";
-interface sectionLayoutProps {
+import React from "react";
+
+interface SectionLayoutProps {
   children: React.ReactNode;
-  ref: React.RefObject<HTMLDivElement>;
+  ref?: React.RefObject<HTMLDivElement>;
 }
 
-function sectionLayout({ children, ref }: sectionLayoutProps) {
+function SectionLayout({ children, ref }: SectionLayoutProps) {
   return (
-    <div
+    <section
       style={{
         padding: "5rem 10rem",
       }}
     >
       {children}
-    </div>
+    </section>
   );
 }
 
-export default sectionLayout;
+export default SectionLayout;

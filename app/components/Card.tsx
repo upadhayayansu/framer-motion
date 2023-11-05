@@ -10,7 +10,7 @@ interface CardProps {
   image?: any;
 }
 
-function Card({ title, description, image }: CardProps) {
+function Card({ title, description, image }: Readonly<CardProps>) {
   return (
     <CardStyled>
       <div
