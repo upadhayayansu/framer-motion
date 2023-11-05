@@ -153,7 +153,7 @@ const HeaderStyled = Styled.header`
 
     .text-content{
       >h1{
-        font-size:clamp(2rem,5vw,5rem);
+        font-size:clamp(2rem,4vw,5rem);
         color:#f2994a
         transition:all 0.01s linear;
         padding-bottom:1.5rem;

@@ -48,7 +48,6 @@ function Fullpage() {
 
 const FullpageStyled = styled.div`
   .image {
-    width: calc(100% - 10rem);
     height: 1000px;
 
     position: relative;
