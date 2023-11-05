@@ -3,8 +3,8 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "/public/logo.png";
-import footer from "../utils/footer";
 import Image from "next/image";
+import footer from "../utils/Footer";
 
 import {
   AiFillGithub,

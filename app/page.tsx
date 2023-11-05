@@ -3,11 +3,14 @@ import styled from "styled-components";
 import Header from "./components/header/Header";
 import SectionLayout from "./components/sectionLayout";
 import Card from "./components/Card";
-import { Cards } from "./utils/Cards";
-import { motion, useScroll, useTransform } from "framer-motion";
 import Fullpage from "./components/Fullpage";
 import TextSection from "./TextSection";
 import Footer from "./components/Footer";
+import ZoomSection from "./components/ZoomSection";
+import React from "react";
+import HorizontalWrapper from "./components/HorizontalWrapper";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { cards } from "./utils/Card";
 
 export default function Home() {
   const video = React.useRef<HTMLDivElement>(null);
@@ -31,16 +34,25 @@ export default function Home() {
         <SectionLayout>
           <HorizontalWrapper height="40rem" direction={-1400}>
             <div className="cards">
-              {cards.map((card, index) => {
-                return (
-                  <Card
-                    key={index}
-                    title={card.title}
-                    description={card.description}
-                    image={card.image}
-                  />
-                );
-              })}
+              {cards.map(
+                (
+                  card: {
+                    title: string;
+                    description: string | undefined;
+                    image: any;
+                  },
+                  index: React.Key | null | undefined
+                ) => {
+                  return (
+                    <Card
+                      key={index}
+                      title={card.title}
+                      description={card.description}
+                      image={card.image}
+                    />
+                  );
+                }
+              )}
             </div>
           </HorizontalWrapper>
         </SectionLayout>
@@ -50,16 +62,25 @@ export default function Home() {
         <SectionLayout>
           <HorizontalWrapper height="40rem" direction={1400}>
             <div className="cards" style={{ right: 0 }}>
-              {cards.map((card, index) => {
-                return (
-                  <Card
-                    key={index}
-                    title={card.title}
-                    description={card.description}
-                    image={card.image}
-                  />
-                );
-              })}
+              {cards.map(
+                (
+                  card: {
+                    title: string;
+                    description: string | undefined;
+                    image: any;
+                  },
+                  index: React.Key | null | undefined
+                ) => {
+                  return (
+                    <Card
+                      key={index}
+                      title={card.title}
+                      description={card.description}
+                      image={card.image}
+                    />
+                  );
+                }
+              )}
             </div>
           </HorizontalWrapper>
         </SectionLayout>
@@ -86,7 +107,7 @@ export default function Home() {
           </motion.div>
         </SectionLayout>
 
-        <SectionLayout children={undefined} ref={undefined}>
+        <SectionLayout ref={undefined}>
           <ZoomSection></ZoomSection>
         </SectionLayout>
 
