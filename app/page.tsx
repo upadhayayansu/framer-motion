@@ -98,12 +98,7 @@ export default function Home() {
               scale,
             }}
           >
-            <iframe
-              src="https://www.youtube.com/watch?v=qt1equGhkQE"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
+           <iframe src="https://www.youtube.com/embed/qt1equGhkQE" title="Otherside Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </motion.div>
         </SectionLayout>
 
