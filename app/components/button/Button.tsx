@@ -36,7 +36,7 @@ const ButtonStyled = Styled.button`
     border-radius: 30px;
     border: 2px solid var(--color-border);
     cursor:pointer;
-    transition: all 0.2s ease-in-out:
+    transition: all 0.2s ease-in-out;
     display:flex;
     align-items:center;
     gap:1rem;
