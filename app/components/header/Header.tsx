@@ -31,7 +31,7 @@ function Header() {
     <HeaderStyled ref={hero}>
       <nav>
         <div className="logo">
-          <Image src={"/logo.png"} alt="logo" width={128} height={77} />
+          <img src={"/logo.png"} alt="logo" style={{objectFit:"contain"}}  />
           <h2>logo</h2>
         </div>
         <div className="input">
